@@ -159,3 +159,8 @@ tree home/mikaela/
 cat home/mikaela/hellotest
 ```
 ![image](https://user-images.githubusercontent.com/93308960/139920775-f9626e19-4d96-4051-a69f-f017a29623de.png)
+
+Käynnistin SSH palvelimen käyttämällä komentoa
+```
+sudo salt-call --local -l info state.single service.running ssh enable=True 
+```
