@@ -1,5 +1,7 @@
 # Harjoitus-1
 
+Tässä harjoituksessa tutustutaan komentoon grains.items/grains.item ja miten sitä filteroida. Miten Idempotenssi voi varmistaa/tunnistaa ja omia mausteita komentoihin pkg, file, service, user. Myös koitettu yrittää suorittaa koodia infra ja init.sls tiedostoa.    
+ 
 
 
 # a) Linux ja Salt versio
