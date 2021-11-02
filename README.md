@@ -10,7 +10,34 @@ Sain katsottua mitä linux ja salt versiota pyöritän komennolla:
 Käytössäni on OS ubuntu-20.04 ja Salt versiona on 3004
 
 # b) Salt koodi
+Tämäkään ei nytten onnistunut ollenkaan.
+Koitin koitin komennoilla:
+```
+ sudo salt-call --local -l info state.single file.managed /bin/salt/hellomikaela/init.sls contens="Hei Saltin maailma"
+```
+Virhe tuloksena tuli
+![image](https://user-images.githubusercontent.com/93308960/139927251-ffa0e573-fced-497b-912b-4d5f04a84dc1.png)
 
+Kommenttina oli Parent directory not present katsoin googlesta mitä se mahdollisestin tarkottaa
+Vastaukseksi löysin "Viittaa toisen hakemiston yläpuolella olevaan hakemistoon. Jokainen hakemisto, lukuun ottamatta juurihakemistoa, sijaitsee toisen hakemiston alla. Ylempää hakemistoa kutsutaan päähakemistoksi ja alempaa hakemistoa kutsutaan alihakemistoksi."
+Lähde: https://www.webopedia.com/definitions/parent-directory/
+
+Toinen komento jota testasin oli: 
+```
+sudo salt-call --local -l info state.single file.managed bin/salt/hellomikaela/init.sls contens="Hei Saltin maailma"
+```
+Virhe tuloksena tuli 
+![image](https://user-images.githubusercontent.com/93308960/139939761-e2815d92-bca1-4fe9-acc3-30b670a771b0.png)
+itse virhe "is not an absolute path" tarkoittaa täydelliset tiedot, joita tarvitaan tiedoston tai kansion löytämiseen.
+
+epäilen kahta asiaa että joko tiedosto polku ei ole oikeuín tai komento "file.managed" ei ole oikein. Olen yrittänyt erillaisia komentoja kuten 
+```
+sudo salt-call --local -l info state.single cmd.run bin/salt/hellomikaela/init.sls contens="Hei Saltin maailma"
+```
+![image](https://user-images.githubusercontent.com/93308960/139941066-37daa86c-b5b5-464a-a95b-a4b54b80e973.png)
+Tässä epälen että "cmd.run" komento kohta ei ole oikein. Myös virhe koodi "failed with return code: 127" tämä tarkoittaa että annettua komento ei löydy PATH-järjestelmämuuttujasta
+
+En osannut enkä löytänyt tarpeellisia apu keinoja.
 
 # c) Koneen tiedot 
 Keräsin saltilla käyttöjärjestelmän, muistin ja bios tiedot komennolla: 
@@ -28,6 +55,8 @@ sudo salt-call --local grains.item kernel ipv4 host
 Tuloksena tuli host nimi roott, oma ip-osoitteeni ja kernel Linux.
 
 # e) infraa koodina
+
+En valitettavastin osannut/muistanut miten tämä tehtiin. Yiritin googlailla kovastin mutta en löytänyt apuja.
 
 # f) Idempotenssi
 Komento jota käytin on:
