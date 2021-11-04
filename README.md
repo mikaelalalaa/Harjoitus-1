@@ -28,8 +28,7 @@ SaltStack konfiguraatio hallintajärjestelmän avulla voit määrittää sovellu
 
 [Install Apache Web Server on Ubuntu](https://terokarvinen.com/2008/05/02/install-apache-web-server-on-ubuntu-4/)
 
-Apachen voi asentaa komennolla $ sudo apt-get install apache2
-Jotta voit testaa että apache toimitt kirjoita selaimeen osoite "http://localhost" 
+ Kertoo miten voi asentee apache2 ja ottaa netti sivu käyttöön
 
 [SaltStack Configuration Management Manage Files](https://docs.saltproject.io/en/getstarted/config/files.html)
 File.Managed funktiolla voit aikallista tiedostoa määrittämällä lähdetiedoston Salt master -ohjelmassa.
