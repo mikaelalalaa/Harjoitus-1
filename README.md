@@ -1,8 +1,52 @@
 # Harjoitus-1
 
-Tässä harjoituksessa tutustutaan komentoon grains.items/grains.item ja miten sitä filteroida. Miten Idempotenssi voi varmistaa/tunnistaa ja omia mausteita komentoihin pkg, file, service, user. Myös koitettu yrittää suorittaa koodia infra ja init.sls tiedostoa.    
- 
+Tässä harjoituksessa tutustutaan komentoon grains.items/grains.item ja miten sitä filteroida ja tiivistelmiä. Miten Idempotenssi voi varmistaa/tunnistaa ja omia mausteita komentoihin pkg, file, service, user. Myös koitettu yrittää suorittaa koodia infra ja init.sls tiedostoa.  
 
+ 
+# Tiivistelmät 
+
+[Run Salt Command Locally](https://terokarvinen.com/2021/salt-run-command-locally/)
+ 
+``` $ sudo salt-call --local -l info state.single pkg.installed (asennus tiedosto)``` komennolla voit asentaa haluamasi ohjelman 
+```$ sudo salt-call --local -l info state.single pkg.removed (asennus tiedosto)``` komennolla voi poistaa haluamais ohjelman 
+
+```$ sudo salt-call --local -l info state.single file.managed (hakemisto) ``` komennolla voit luoda haluamaasi hakemistoon tiedoston
+```contents="teksti" ```lisäämällä tämän äskeiseen komennon loppuun, voi luoda sisällön tiedostolle
+```$ sudo salt-call --local -l info state.single file.absent (hakemisto)``` Komennolla poistat 
+
+```$ sudo salt-call --local -l info state.single service.running (palvelu) enable=True``` komennolla voit käynnistää jonkun palvelun esimerkiksi SSH
+```$ sudo salt-call --local -l info state.single service.dead (palvelu) enable=False``` komennolla voit lopettaa jonkun palvelun esimerkiksi SSH
+
+```$ sudo salt-call --local -l info state.single user.present (käyttäjä nimi)``` komennolla luot käyttäjän
+```$ sudo salt-call --local -l info state.single user.absent (käyttäjä nimi)``` komennolla poistat käyttäjän
+
+```$ sudo salt-call --local -l info state.single cmd.run 'touch hakemisto' creates="hekemiston" ```komento luo uuden hakemiston
+
+[SaltStack Configuration Management](https://docs.saltproject.io/en/getstarted/config/index.html)
+
+SaltStack konfiguraatio hallintajärjestelmän avulla voit määrittää sovelluksia, tiedostoja ja muita asetuksia. 
+
+[Install Apache Web Server on Ubuntu](https://terokarvinen.com/2008/05/02/install-apache-web-server-on-ubuntu-4/)
+
+Apachen voi asentaa komennolla $ sudo apt-get install apache2
+Jotta voit testaa että apache toimitt kirjoita selaimeen osoite "http://localhost" 
+
+[SaltStack Configuration Management Manage Files](https://docs.saltproject.io/en/getstarted/config/files.html)
+File.Managed funktiolla voit aikallista tiedostoa määrittämällä lähdetiedoston Salt master -ohjelmassa.
+File.Recurse funktiolla kopioi koko hakemiston 
+
+[Command Line Basics Revisited](https://terokarvinen.com/2020/command-line-basics-revisited/) 
+
+sivustolla kerrotaan erillaisia komentoja.
+miten voi liikkua ja katsoa ympäriin
+Miten voi luoda tai siirtää tiedostoja/hakemistoja, tai poistaa.
+Kerrotaan SSH etäkäytöstä
+Miten saa apua ja historian 
+
+
+[SaltStack Configuration Management Functions](https://docs.saltproject.io/en/getstarted/config/functions.html)
+
+Sivustolla kerrotaan "call salt state funktioita", kuten miten lataa jonkun ohjelman tai luoda hakemiston tai lisää käyttäjän
 
 # a) Linux ja Salt versio
 Sain katsottua mitä linux ja salt versiota pyöritän komennolla: 
