@@ -1,6 +1,8 @@
 # Harjoitus-1
 
-Tässä harjoituksessa tutustutaan komentoon grains.items/grains.item ja miten sitä filteroida ja tiivistelmiä. Miten Idempotenssi voi varmistaa/tunnistaa ja omia mausteita komentoihin pkg, file, service, user. Myös koitettu yrittää suorittaa koodia infra ja init.sls tiedostoa.  
+Tässä harjoituksessa tutustutaan komentoon grains.items/grains.item ja miten sitä filteroida ja tiivistelmiä. Miten Idempotenssi voi varmistaa/tunnistaa ja omia mausteita komentoihin pkg, file, service, user. Myös koitettu yrittää suorittaa koodia infra ja init.sls tiedostoa. 
+
+Tehtävät löytyvät [Tero Karvisen sivulta](https://terokarvinen.com/2021/configuration-management-systems-palvelinten-hallinta-ict4tn022-2021-autumn/#h1-hei-maailma--monet-tilat) 
 
  
 ## Tiivistelmät 
