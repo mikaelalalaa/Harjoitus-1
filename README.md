@@ -3,7 +3,7 @@
 Tässä harjoituksessa tutustutaan komentoon grains.items/grains.item ja miten sitä filteroida ja tiivistelmiä. Miten Idempotenssi voi varmistaa/tunnistaa ja omia mausteita komentoihin pkg, file, service, user. Myös koitettu yrittää suorittaa koodia infra ja init.sls tiedostoa.  
 
  
-# Tiivistelmät 
+## Tiivistelmät 
 
 [Run Salt Command Locally](https://terokarvinen.com/2021/salt-run-command-locally/)
  
@@ -47,14 +47,14 @@ Miten saa apua ja historian
 
 Sivustolla kerrotaan "call salt state funktioita", kuten miten lataa jonkun ohjelman tai luoda hakemiston tai lisää käyttäjän
 
-# a) Linux ja Salt versio
+## a) Linux ja Salt versio
 Sain katsottua mitä linux ja salt versiota pyöritän komennolla: 
 ```
  sudo salt-call --local grains.item osfinger saltversion
 ```
 Käytössäni on OS ubuntu-20.04 ja Salt versiona on 3004
 
-# b) Salt koodi
+## b) Salt koodi
 Tämäkään ei nytten onnistunut ollenkaan.
 Koitin koitin komennoilla:
 ```
@@ -84,14 +84,14 @@ Tässä epälen että "cmd.run" komento kohta ei ole oikein. Myös virhe koodi "
 
 En osannut enkä löytänyt tarpeellisia apu keinoja.
 
-# c) Koneen tiedot 
+## c) Koneen tiedot 
 Keräsin saltilla käyttöjärjestelmän, muistin ja bios tiedot komennolla: 
 ```
 sudo salt-call --local grains.item osfinger biosversion mem_total
 ```
 Tuloksena tuli käyttöjärjestelmä on ubunti, biosversio on VirtualBox ja muistia on 3639.
 
-# d) Kultajyvät 
+## d) Kultajyvät 
 Halusin kerää kernel, ipv4 ja host tiedot esille käyttämällä salt ja grains.item komentoa. 
 Komentona toimi
 ```
@@ -99,11 +99,11 @@ sudo salt-call --local grains.item kernel ipv4 host
 ```
 Tuloksena tuli host nimi roott, oma ip-osoitteeni ja kernel Linux.
 
-# e) infraa koodina
+## e) infraa koodina
 
 En valitettavastin osannut/muistanut miten tämä tehtiin. Yiritin googlailla kovastin mutta en löytänyt apuja.
 
-# f) Idempotenssi
+## f) Idempotenssi
 Komento jota käytin on:
 ```
 sudo salt-call --local -l info state.single file.managed /tmp/hellomikaela contents="hai"
@@ -173,7 +173,7 @@ Total run time:  49.927 ms
 ```
 Tässä huomaan kahdesta kohtaa että mitään uusia muutoksia ei ole tapahtunut. Ensimmäinen kohta on "Changes:" siinä ei ole mitään tietoa että muutoksia on tapahtunut verrattuna aikasempaa missä luki mitä muutoksia on tapahtunut. Toinen kohta on "Succeeded: 1" se kertoo että ajettu komento on onnistunut ja muutoksia ei ole tehty kun taas verrattuna aikaisempaan "Succeeded: 1 (changed=1)" ajettu komento on onnistutu ja muutoksia tehtiin. 
 
-# g) omat mausteet
+## g) omat mausteet
 Asensin net-tools paketin saltin pkg avulla. 
 Komento mitä käytin on:
 ```
